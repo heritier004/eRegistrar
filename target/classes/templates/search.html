@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eRegistrar - Search Students</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px auto;
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        table {
+            margin: 20px auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Search Students</h1>
+
+<!-- Search Form -->
+<form th:action="@{'/students/' + keyword}" method="get">
+    <label for="keyword">Student Id:</label>
+    <input type="text" id="keyword" name="keyword" th:value="${keyword}" placeholder="Enter a student id">
+    <button type="submit">Search</button>
+</form>
+
+<!-- Display search results here -->
+<table>
+    <thead>
+    <tr>
+        <th>Student Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>CGPA</th>
+        <th>Enrollment Date</th>
+        <th>Is International</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Use Thymeleaf to iterate over the search results -->
+    <tr th:each="student : ${searchResults}">
+        <td th:text="${student.studentNumber}">Student Number</td>
+        <td th:text="${student.firstName}">First Name</td>
+        <td th:text="${student.lastName}">Last Name</td>
+        <td th:text="${student.cgpa}">CGPA</td>
+        <td th:text="${student.dateOfEnrollment}">Enrollment Date</td>
+        <td th:text="${student.isInternational}">Is International</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

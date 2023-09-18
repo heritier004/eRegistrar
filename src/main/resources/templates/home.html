@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>eRegistrar - Home</title>
+    <style>
+        body {
+            background-color: #f2f2f2; /* Change background color as desired */
+            text-align: center; /* Center the text */
+        }
+
+        h1 {
+            color: #333; /* Change header text color as desired */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff; /* Change link color as desired */
+        }
+
+        label {
+            font-weight: bold; /* Add bold style to labels */
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to eRegistrar</h1>
+<ul>
+    <li><a href="/students">List of Students</a></li>
+    <li><a href="/students/form">Register a New Student</a></li>
+    <li><a href="/students/${studentId}">Search Students</a></li>
+</ul>
+</body>
+</html>
